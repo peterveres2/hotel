@@ -11,6 +11,8 @@ public class BasicHotelView implements HotelView {
 	@Value("${application-name}")
 	private String appName;
 	
+	
+	
 	public void printDetails(Hotel hotel) {
 		System.out.println("Hotel details:");
 		System.out.printf("Id: %s %n", hotel.getId());

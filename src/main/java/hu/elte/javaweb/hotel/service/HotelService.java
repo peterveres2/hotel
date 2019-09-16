@@ -1,11 +1,12 @@
 package hu.elte.javaweb.hotel.service;
 
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import hu.elte.javaweb.hotel.domain.Hotel;
 
 @Service
+@Scope("prototype")
 public class HotelService {
 
 	public Hotel findById(int id) {

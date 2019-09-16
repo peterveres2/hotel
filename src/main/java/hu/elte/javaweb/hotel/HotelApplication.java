@@ -18,7 +18,7 @@ public class HotelApplication {
 	private HotelService hotelService;
 	
 	@Autowired
-	@Qualifier("basicHotelView")
+	@Qualifier("advancedHotelViewWithPlus")
 	private HotelView hotelView;
 
 	
@@ -35,7 +35,14 @@ public class HotelApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = 
 				SpringApplication.run(HotelApplication.class, args);
+		
 		HotelApplication hotelApplication = context.getBean(HotelApplication.class);
+
+		HotelService hotelService = context.getBean(HotelService.class);
+		HotelService hotelService2 = context.getBean(HotelService.class);
+		System.out.println(hotelService);
+		System.out.println(hotelService2);
+		
 		
 		hotelApplication.play();
 	}
