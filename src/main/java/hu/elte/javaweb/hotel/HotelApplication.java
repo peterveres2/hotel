@@ -1,7 +1,9 @@
 package hu.elte.javaweb.hotel;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import hu.elte.javaweb.hotel.domain.Hotel;
 import hu.elte.javaweb.hotel.service.HotelService;
@@ -10,13 +12,12 @@ import hu.elte.javaweb.hotel.view.HotelView;
 @SpringBootApplication
 public class HotelApplication {
 
+	@Autowired
 	private HotelService hotelService;
-	private HotelView hotelView;
 	
-	public HotelApplication() {
-		hotelService = new HotelService();
-		hotelView = new HotelView();
-	}
+	@Autowired
+	private HotelView hotelView;
+
 	
 	public void play() {
 		Hotel hotel1 = hotelService.findById(1);
@@ -28,8 +29,10 @@ public class HotelApplication {
 	}
 	
 	public static void main(String[] args) {
-		//SpringApplication.run(HotelApplication.class, args);
-		HotelApplication hotelApplication = new HotelApplication();
+		ConfigurableApplicationContext context = 
+				SpringApplication.run(HotelApplication.class, args);
+		HotelApplication hotelApplication = context.getBean(HotelApplication.class);
+		
 		hotelApplication.play();
 	}
 

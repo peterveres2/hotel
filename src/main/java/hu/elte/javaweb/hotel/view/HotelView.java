@@ -1,7 +1,10 @@
 package hu.elte.javaweb.hotel.view;
 
+import org.springframework.stereotype.Component;
+
 import hu.elte.javaweb.hotel.domain.Hotel;
 
+@Component
 public class HotelView {
 
 	public void printDetails(Hotel hotel) {
