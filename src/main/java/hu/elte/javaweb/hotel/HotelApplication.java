@@ -7,7 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import hu.elte.javaweb.hotel.domain.Hotel;
 import hu.elte.javaweb.hotel.service.HotelService;
-import hu.elte.javaweb.hotel.view.HotelView;
+import hu.elte.javaweb.hotel.view.BasicHotelView;
 
 @SpringBootApplication
 public class HotelApplication {
@@ -16,7 +16,7 @@ public class HotelApplication {
 	private HotelService hotelService;
 	
 	@Autowired
-	private HotelView hotelView;
+	private BasicHotelView hotelView;
 
 	
 	public void play() {

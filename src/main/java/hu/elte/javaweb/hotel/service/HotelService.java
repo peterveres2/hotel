@@ -1,10 +1,11 @@
 package hu.elte.javaweb.hotel.service;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import hu.elte.javaweb.hotel.domain.Hotel;
 
-@Component
+@Service
 public class HotelService {
 
 	public Hotel findById(int id) {
