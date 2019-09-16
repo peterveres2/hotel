@@ -20,6 +20,7 @@ public class HotelApplication {
 
 	
 	public void play() {
+		hotelView.printWelcomeMessage();
 		Hotel hotel1 = hotelService.findById(1);
 		hotelView.printDetails(hotel1);
 		
