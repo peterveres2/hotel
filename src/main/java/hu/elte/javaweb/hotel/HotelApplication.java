@@ -1,6 +1,7 @@
 package hu.elte.javaweb.hotel;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -8,6 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import hu.elte.javaweb.hotel.domain.Hotel;
 import hu.elte.javaweb.hotel.service.HotelService;
 import hu.elte.javaweb.hotel.view.BasicHotelView;
+import hu.elte.javaweb.hotel.view.HotelView;
 
 @SpringBootApplication
 public class HotelApplication {
@@ -16,7 +18,8 @@ public class HotelApplication {
 	private HotelService hotelService;
 	
 	@Autowired
-	private BasicHotelView hotelView;
+	@Qualifier("basicHotelView")
+	private HotelView hotelView;
 
 	
 	public void play() {
