@@ -16,7 +16,7 @@ public class HotelService {
 			hotel.setCapacity(1500);			
 		}
 		else {
-			throw new IllegalArgumentException("Hotel does not [" + id + "] exist.");
+			throw new IllegalArgumentException("Hotel [" + id + "] does not  exist.");
 		}
 		return hotel;
 	}
