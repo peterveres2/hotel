@@ -8,7 +8,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import hu.elte.javaweb.hotel.domain.Hotel;
 import hu.elte.javaweb.hotel.service.HotelService;
-import hu.elte.javaweb.hotel.view.BasicHotelView;
 import hu.elte.javaweb.hotel.view.HotelView;
 
 @SpringBootApplication
