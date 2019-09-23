@@ -1,14 +1,17 @@
 package hu.elte.javaweb.hotel.service;
 
-import org.springframework.context.annotation.Scope;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hu.elte.javaweb.hotel.domain.Hotel;
+import hu.elte.javaweb.hotel.repository.HotelRepository;
 
 @Service
-@Scope("prototype")
 public class HotelService {
 
+	@Autowired
+	HotelRepository hotelRepository;
+	
 	public Hotel findById(int id) {
 		Hotel hotel = new Hotel();
 		hotel.setId(id);
@@ -23,6 +26,7 @@ public class HotelService {
 		else {
 			throw new IllegalArgumentException("Hotel [" + id + "] does not  exist.");
 		}
+		hotelRepository.save(hotel);
 		return hotel;
 	}
 }
