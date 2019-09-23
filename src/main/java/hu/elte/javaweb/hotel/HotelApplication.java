@@ -1,5 +1,7 @@
 package hu.elte.javaweb.hotel;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
@@ -23,12 +25,17 @@ public class HotelApplication {
 	
 	public void play() {
 		hotelView.printWelcomeMessage();
-		Hotel hotel1 = hotelService.findById(1);
-		hotelView.printDetails(hotel1);
+		hotelService.createHotels();
 		
-		Hotel hotel2 = hotelService.findById(2);
-		hotelView.printDetails(hotel2);
+		// find hotel by id
+		Hotel hotelWithId3 = hotelService.findHotelById(3).get();
+		hotelView.printDetails(hotelWithId3);
 		
+		// find hotel by name
+		List<Hotel> hunguestHotelList = hotelService.findHotelByName("Hunguest Hotel");
+		for (Hotel hotel : hunguestHotelList) {
+			hotelView.printDetails(hotel);
+		}
 	}
 	
 	public static void main(String[] args) {

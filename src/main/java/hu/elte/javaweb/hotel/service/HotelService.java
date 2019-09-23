@@ -1,5 +1,8 @@
 package hu.elte.javaweb.hotel.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,21 +15,41 @@ public class HotelService {
 	@Autowired
 	HotelRepository hotelRepository;
 	
-	public Hotel findById(int id) {
-		Hotel hotel = new Hotel();
-		hotel.setId(id);
-		if (id == 1) {
-			hotel.setName("Mariott ***** Superior");
-			hotel.setCapacity(500);
-		}
-		else if (id == 2) {
-			hotel.setName("Intercontinental ***** Superior");
-			hotel.setCapacity(1500);			
-		}
-		else {
-			throw new IllegalArgumentException("Hotel [" + id + "] does not  exist.");
-		}
-		hotelRepository.save(hotel);
-		return hotel;
+	public void createHotels() {
+		Hotel marriot = new Hotel();
+		marriot.setId(1);
+		marriot.setName("Marriot Hotel");
+		marriot.setCapacity(500);
+		hotelRepository.save(marriot);
+		
+		Hotel intercontinental = new Hotel();
+		intercontinental.setId(2);
+		intercontinental.setName("Intercontinental Hotel");
+		intercontinental.setCapacity(1500);
+		hotelRepository.save(intercontinental);
+		
+		Hotel botelHotelMotel = new Hotel();
+		botelHotelMotel.setId(3);
+		botelHotelMotel.setName("Hunguest Hotel Mátrafüred");
+		botelHotelMotel.setCapacity(500);
+		hotelRepository.save(botelHotelMotel);
+		
+		Hotel hunguest = new Hotel();
+		hunguest.setId(4);
+		hunguest.setName("Hunguest Hotel Sopron");
+		hunguest.setCapacity(1500);
+		hotelRepository.save(hunguest);
+	}
+	
+	public void destroyHotels() {
+		hotelRepository.deleteAll();
+	}
+	
+	public Optional<Hotel> findHotelById(int id) {
+		return hotelRepository.findById(id);
+	}
+	
+	public List<Hotel> findHotelByName(String name){
+		return hotelRepository.findByNameContaining(name);
 	}
 }
